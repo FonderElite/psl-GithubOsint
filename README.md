@@ -7,6 +7,6 @@ Psl-GithubOsint: Powershell Script that grabs details of a github user
 ```
 
 ## Sample
-<img src="sample.png" width="600px">
+<img src="sample.png" width="700px">
 
 
