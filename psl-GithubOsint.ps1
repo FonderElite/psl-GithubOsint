@@ -3,6 +3,19 @@ Param (
 [string]$ps1
 )
 $details = @();
+function Get-Banner{
+    $ascii=@"
+             .__              ________  ___ ___ ________         .__        __   
+______  _____|  |            /  _____/ /   |   \\_____  \   _____|__| _____/  |_ 
+\____ \/  ___/  |    ______ /   \  ___/    ~    \/   |   \ /  ___/  |/    \   __\
+|  |_> >___ \|  |__ /_____/ \    \_\  \    Y    /    |    \\___ \|  |   |  \  |  
+|   __/____  >____/          \______  /\___|_  /\_______  /____  >__|___|  /__|  
+|__|       \/                       \/       \/         \/     \/        \/      
+"@
+Write-Color "{cyan}",$ascii;
+Write-Color "{green}Made By: {white}FonderElite{green} | {white}Version: {white}1.0{green} | {white}Date: {white}$(date){green}`n";
+
+}
 function Write-Color() {
     Param (
         [string] $text = $(Write-Error "You must specify some text"),
@@ -87,6 +100,8 @@ $authorTwitter = $JsonDataF2.twitter_username;
 $authorBlog = $JsonDataF2.blog;
 $userdetails = @($authorEmail,$authorId,$authorRepos,$authorUrl,$authorImg,$authorGist,$authorFollowers,$authorFollowing,$authorCreated,$authorUpdated,$authorLocation,$authorCompany,$authorTwitter, $authorBlog);
 Clear-Host;
+Get-Banner;
+Start-Sleep 1.5;
 Write-Color "{white}[{green}+{white}]User Details: ";
 Write-Color "{green}User-Email:{white}",$userdetails[0];
 Write-Color "{green}User-Id:{white} ",$userdetails[1];
@@ -101,7 +116,6 @@ Write-Color "{green}Followers:{white} ",$userdetails[6];
 Write-Color "{green}Following:{white} ",$userdetails[7];
 Write-Color "{green}Author-Created:{white} ",$userdetails[8];
 Write-Color "{green}Author-Updated:{white} ",$userdetails[9];
-
 
  }
   }elseif(Test-Path $temploc){
@@ -126,6 +140,8 @@ $actorUrl = $JsonData.actor.url[0];
 
 
 clear-Host;
+Get-Banner;
+Start-Sleep 1.5;
 $userdetails2 = @($email,$id,$repos,$actorUrl,$avatar,$gist,$followers,$following,$created,$updated,$location,$company,$twitter,$blog);
 Write-Color "{white}[{green}+{white}]User Details: ";
 Write-Color "{green}User-Email:{white}",$userdetails2[0];
@@ -137,10 +153,10 @@ Write-Color "{green}Twitter:{white} ",$userdetails2[12];
 Write-Color "{green}Total Public Repos:{white} ",$userdetails2[2];
 Write-Color "{green}Total Public Gists:{white} ",$userdetails2[4];
 Write-Color "{green}Author-Url:{white} ",$userdetails2[3];
-Write-Color "{green}Followers:{white} ",$userdetails2[5];
-Write-Color "{green}Following:{white} ",$userdetails2[6];
-Write-Color "{green}Created:{white} ",$userdetails2[7];
-Write-Color "{green}Updated:{white} ",$userdetails2[8];
+Write-Color "{green}Followers:{white} ",$userdetails2[6];
+Write-Color "{green}Following:{white} ",$userdetails2[5];
+Write-Color "{green}Created:{white} ",$userdetails2[8];
+Write-Color "{green}Updated:{white} ",$userdetails2[9];
     }
 elseif($ps1 -eq ''){
         Write-Color "{white}[{red}-{white}] You must specify a username{white}";
